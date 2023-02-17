@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="../static/css/form_style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+
+    <script>
+         // Denotes total number of rows
+         var rowIdx = 0;
+         var cmrowIdx = 0;
+        $(document).ready(function () {
+
+           
+
+            $('#addBtn').on('click', function () {
+                $('#tbody').append(`<tr id="R${rowIdx}">
+                  <td class="row-index text-center">
+                    <input id="dis${rowIdx}" type="text" placeholder="Enter past diseases" required>
+                    <select name="severity" id="severity${rowIdx}">  
+                    <option value="-1" selected>select</option>                      
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    </select>
+                  </td>
+                   </tr>`);
+                   rowIdx=rowIdx+1;
+            });
+
+            $('#cmaddBtn').on('click', function () {
+                $('#cmtbody').append(`<tr id="R${cmrowIdx}">
+            <td class="row-index text-center">
+              <input id="M${cmrowIdx}" type="text" placeholder="Enter current medications" required>
+            </td>
+             </tr>`);
+             cmrowIdx=cmrowIdx+1;
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <br><br>
+    <div class="container">
+        <div class="title">Medical Information</div>
+        <form onsubmit="return false" action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Date Of Birth</span>
+                    <input id="dob" type="date" placeholder="Enter your DOB" required>
+                </div>
+                <div class="gender-details">
+                    <input type="radio" name="gender" id="dot-1">
+                    <input type="radio" name="gender" id="dot-2">
+                    <input type="radio" name="gender" id="dot-3">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Weight</span>
+                    <input id="Weight" type="text" placeholder="Enter your Weight (In Kg)" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Height</span>
+                    <input id="Height"type="text" placeholder="Enter your Height (In Cm)" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Past Diseases With Severity </span>
+                    <h4></h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody id="tbody">
+                                <button class="btn btn-md btn-primary" id="addBtn" type="button">
+                                    +
+                                </button>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Current Medications</span>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody id="cmtbody">
+                                <button class="btn btn-md btn-primary" id="cmaddBtn" type="button">
+                                    +
+                                </button>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="button">
+                <input  onclick="form_reg()" type="submit" value="Submit">
+            </div>
+    </div>
+
+
+    </div>
+    </form>
+    </div>
+    </div>
+
+<script>
+  function form_reg()
+  {
+    var dob = document.getElementById("dob").value;
+    var w = document.getElementById("Weight").value;
+    var h = document.getElementById("Height").value;
+    var male = document.getElementById("dot-1").checked;
+    var female = document.getElementById("dot-2").checked;
+    var notsay = document.getElementById("dot-3").checked;
+    var gender= "";
+    
+    var dict = {}
+    var med=[];
+    for (let i=0;i<rowIdx;i++){
+        var id="dis"+String(i);
+        var id2="severity"+String(i);
+        
+        var dis = document.getElementById(id).value;
+        var sev = document.getElementById(id2).value;
+        dict[dis]=sev;
+    }
+    for (let i=0;i<cmrowIdx;i++){
+        var id="M"+String(i);
+        
+        var m = document.getElementById(id).value;
+        med.push(m);
+
+        
+    }
+    
+    if(male){
+        gender="male";
+    }
+    if(female){
+        gender="female";
+        
+    }
+    if (notsay){
+        gender="notsay";
+    }
+    
+    var list=[dob,w,h,gender,dict,med];
+    console.log(list);
+    form_data=JSON.stringify(list);
+    $.ajax({
+                type:'POST',
+                url:'/new_form',
+                data:form_data
+              })
+              .done(function(data){
+                console.log(data);
+                location.href = 'login';
+                
+                        
+                        
+                    })
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

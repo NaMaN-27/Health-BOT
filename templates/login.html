@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/css/style_login.css" />
+  <title>Sign in & Sign up Form</title>
+</head>
+
+<body>
+  <!-- <h1 style="text-align: center; ;color: whitesmoke;background: rgb(68,129,235);
+  background: linear-gradient(90deg, rgba(68,129,235,1) 51.8%, rgba(35,35,35,1) 51%);" >AI HEALTHCARE CHATBOT</h1> -->
+  <div class="container">
+   
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form onsubmit="return false" class="sign-in-form">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id='user' placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="pass" placeholder="Password" />
+          </div>
+          <button class="btn solid" onclick="login()"> LOGIN </button>
+
+          <!-- <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div> -->
+        </form>
+        <form onsubmit="return false" class="sign-up-form">
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="signuser" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="signemail" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="signpass" placeholder="Password" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="text" id="otp" placeholder="OTP" />
+          </div>
+          
+          
+          <button class="btn solid" onclick="validate()"> GET OTP</button>
+          <button class="btn solid" onclick="signup()"> Sign Up</button>
+          
+          <h2 font="16" id="postotp"class="title"></h2>
+
+          <!-- <p class="social-text">Or Sign up with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div> -->
+        </form>
+      </div>
+    </div>
+
+  <h1 style="text-align: center;color: white;  z-index: 9999;position: relative;" >AI HEALTHCARE CHATBOT</h1>
+    <div class="panels-container">
+      
+      <div class="panel left-panel">
+        <div class="content">
+          <br>
+          <h3 style="margin-right: 200px ;">New here ?</h3>
+          <br>
+
+          <button style="margin-right: 200px ;" class="btn transparent" id="sign-up-btn">
+            Sign up
+          </button>
+        </div>
+        <img style="width: 110%;" src="../static/images/ss2.gif" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3 style="margin-right: 200px  ;">One of us ?</h3>
+
+          <br>
+          <button style="margin-right: 200px  ;" class="btn transparent" id="sign-in-btn">
+            Sign in
+          </button>
+        </div>
+        <img style="margin-right: 20px;"src="../static/images/sss.png" class="image" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/app_login.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+  <script>
+    function login() {
+      var username = document.getElementById("user").value;
+      var pass = document.getElementById("pass").value;
+
+
+      var list = [username, pass];
+      login_data = JSON.stringify(list);
+      $.ajax({
+        type: 'POST',
+        url: '/login',
+        data: login_data
+      })
+        .done(function (data) {
+          console.log(data);
+
+          if (data == "success") {
+
+            location.href = 'login'
+          }
+
+
+        })
+    }
+    function validate(){
+      var username = document.getElementById("signuser").value;
+      var pass = document.getElementById("signpass").value;
+      var email = document.getElementById("signemail").value;
+
+      var list = [username, pass, email];
+      signup_data = JSON.stringify(list);
+      $.ajax({
+        type: 'POST',
+        url: '/getotp',
+        data: signup_data
+      })
+        .done(function (data) {
+          console.log(data);
+          if (data == "success") {
+
+            document.getElementById("postotp").innerHTML="OTP SENT";
+          }
+          if (data=="EMAIL EXISTS"){
+            document.getElementById("postotp").innerHTML="EMAIL ALREADY EXISTS";
+
+          }
+          
+
+
+        })
+
+
+    }
+
+
+
+    function signup() {
+      var username = document.getElementById("signuser").value;
+      var pass = document.getElementById("signpass").value;
+      var email = document.getElementById("signemail").value;
+      var otp = document.getElementById("otp").value;
+      var list = [username, pass, email,otp];
+      signup_data = JSON.stringify(list);
+      $.ajax({
+        type: 'POST',
+        url: '/signup',
+        data: signup_data
+      })
+        .done(function (data) {
+          console.log(data);
+          if (data == "success") {
+            document.getElementById("postotp").innerHTML="EMAIL VERIFIED";
+            location.href = 'new_form'
+          }
+          
+
+
+        })
+
+    }
+
+  </script>
+
+
+
+</body>
+
+</html>

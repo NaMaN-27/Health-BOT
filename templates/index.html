@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/chat.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/typing.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="../static/css/maicons.css" />
+
+    <link rel="stylesheet" href="../static/vendor/animate/animate.css" />
+
+    <link
+      rel="stylesheet"
+      href="../static/vendor/owl-carousel/css/owl.carousel.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../static/vendor/fancybox/css/jquery.fancybox.css"
+    />
+
+    <link rel="stylesheet" href="../static/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css" />
+    <title>Chatbox</title>
+  </head>
+  <body>
+    <div class="">
+      <div class="">
+        <div class="navg col-md-12">
+          <nav class="navbar navbar-md">
+            <div class="navbar-brand text-primary">AI HEALTHCARE CHATBOT</div>
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/login"><b>HOME</b></a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/pred"><b>PREDICTION</b></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()"  href="/map"><b>NEARBY HOSPITALS</b></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/logout"><b>LOGOUT</b></a>
+						</li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="page-banner home-banner mb-5">
+          <div class="slider-wrapper">
+            <div  class="owl-carousel hero-carousel">
+              <div class="hero-carousel-item">
+                <img
+                  src="../static/images/ss1.jpg"
+                  alt=""
+                />
+                <div class="img-caption">
+                  <div class="subhead"><b>
+                    A complete solution to your health problems</b>
+                  </div>
+                  <h1 class="mb-4"><b>AI HEALTHCARE CHATBOT</b></h1>
+                </div>
+              </div>
+              <div class="hero-carousel-item">
+                <img
+                  src="../static/images/ss3.jpg"
+                  alt=""
+                />
+                <div class="img-caption">
+                  <h1 class="mb-4"><b>
+                    Predict Diseases Based On The Symptoms
+                    
+                  </b></h1>
+
+                </div>
+              </div>
+              <div class="hero-carousel-item">
+                <img
+                  src="../static/images/ss4.jpg"
+                  alt=""
+                />
+<div class="img-caption">
+                  <div class="subhead"></div>
+                  <h1 class="mb-4"><b>Predict Disease From X-Rays</b></h1>
+                    </div>
+
+              </div>
+              <div class="hero-carousel-item">
+                <img
+                  src="../static/images/ss2.jpg"
+                  alt=""
+                />
+<div class="img-caption">
+                  <div class="subhead"></div>
+                  <h1 class="mb-4"><b>Consult A Doctor</b></h1>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+
+                 </div>
+        <!-- .page-banner -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="chatbox">
+        <div class="chatbox__support">
+          <div class="chatbox__header">
+            <div class="chatbox__image--header">
+              <img
+                style="max-width: 120px; max-height: 120px"
+                src="../static/images/ss2.gif"
+                alt="image"
+              />
+            </div>
+            <div class="chatbox__content--header">
+              <h4 style="font-weight: bold">IBM LEX BOT</h4>
+              <!-- <p class="chatbox__description--header">HEALTH CARE BOT BUILD USING AMAZOON LEX</p> -->
+            </div>
+          </div>
+          <div class="chatbox__messages">
+            <div id="chatsave" class="chat"></div>
+          </div>
+          <div class="messages__item messages__item--typing">
+            <span class="messages__dot"></span>
+            <span class="messages__dot"></span>
+            <span class="messages__dot"></span>
+          </div>
+          <div class="chatbox__footer">
+            <img src="../static/images/icons/emojis.svg" alt="" />
+            <img src="../static/images/icons/microphone.svg" alt="" />
+            <input
+              type="text"
+              id="inputs"
+              type="text"
+              placeholder="Write a message..."
+            />
+            <button
+              style="height: 40px; width: 60px; font-size: medium"
+              id="chat_button"
+              onclick="myFunction()"
+            >
+              <p class="chatbox__send--footer">Send</p>
+            </button>
+            <img src="../static/images/icons/attachment.svg" alt="" />
+          </div>
+        </div>
+        <div>
+        <div class="chatbox__button">         
+          <button>button</button>
+        </div>
+        <br><h5 style = "color: #3463FF;margin-left: 190px;"><b>CHATBOT</b></h5>
+      </div></div>
+    </div>
+    <script src="../static/js/Chat.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        var saved_state = localStorage.getItem("state");
+        document.getElementById("chatsave").innerHTML = saved_state;
+        console.log("ready!");
+      });
+      function savestate() {
+        var state = document.getElementById("chatsave").innerHTML;
+        localStorage.setItem("state", state);
+        console.log(state);
+      }
+
+      var input = document.getElementById("inputs");
+
+      input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+
+          document.getElementById("chat_button").click();
+        }
+      });
+      function myFunction() {
+        input = document.getElementById("inputs").value;
+        if (input == "") {
+          return 0;
+        }
+        document.getElementById("inputs").value = "";
+        $(document).ready(function () {
+          $(".chat").append(
+            ' <div class="messages__item messages__item--operator">' +
+              input +
+              "</div>"
+          );
+        });
+
+        var list = [input];
+        input_chat = JSON.stringify(list);
+
+        $.ajax({
+          type: "POST",
+          url: "/chat",
+          data: input_chat,
+        }).done(function (data) {
+          if (
+            data ==
+            "Sure, on what date would you like me to schedule your online appointment."
+          ) {
+            $(".chat").append(
+              ' <div class="messages__item messages__item--visitor">' +
+                data +
+                "</div>"
+            );
+            $(".chat").append(' <form id="date" action="/date">');
+
+            $(".chat").append(
+              ' <input type="date" id="date_appt" name="appt">'
+            );
+            $(".chat").append(" <br>");
+            $(".chat").append(
+              ' <input type="time" id="time_appt" name="appt">'
+            );
+            $(".chat").append(" <br>");
+            $(".chat").append(
+              ' <button onclick="date_time()" >SUBMIT</button>'
+            );
+
+            $(".chat").append(" </form>");
+          } else {
+            console.log(data);
+            $(".chat").append(
+              ' <div class="messages__item messages__item--visitor">' +
+                data +
+                "</div>"
+            );
+          }
+        });
+      }
+
+      function date_time() {
+        console.log("hello");
+
+        var date = document.getElementById("date_appt").value;
+        var time = document.getElementById("time_appt").value;
+        console.log(date);
+        console.log(time);
+        var list = [date, time];
+        dateandtime = JSON.stringify(list);
+        $.ajax({
+          type: "POST",
+          url: "/date",
+          data: dateandtime,
+        }).done(function (data) {
+          $(".chat").append(
+            ' <div class="messages__item messages__item--visitor">' +
+              data +
+              "</div>"
+          );
+        });
+      }
+    </script>
+
+    <script src="../static/js/jquery-3.5.1.min.js"></script>
+
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../static/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+    <script src="../static/vendor/wow/wow.min.js"></script>
+
+    <script src="../static/vendor/fancybox/js/jquery.fancybox.min.js"></script>
+
+    <script src="../static/vendor/isotope/isotope.pkgd.min.js"></script>
+
+    <script src="../static/js/google-maps.js"></script>
+
+    <script src="../static/js/theme.js"></script>
+  </body>
+</html>

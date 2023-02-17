@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/chat.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/typing.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../static/css/home.css" />
+    <title>Chatbox</title>
+</head>
+<body style="color: black;">
+  <style>
+      .image-preview {
+          width: 500px;
+          min-height: 100px;
+          border: 2px solid #dddddd;
+          margin-top: 15px;
+
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          color: #cccccc;
+      }
+
+      .image-preview__image {
+          display: none;
+          width: 100%;
+
+      }
+
+      .container {
+          max-width: 500px;
+          margin: auto;
+      }
+  </style>
+
+    <div class="">
+		<div class="">
+			<div class="navg col-md-12">
+				<nav style="background-color: white;"class="navbar navbar-md">
+					<div class="navbar-brand text-primary">AI HEALTHCARE CHATBOT</div>
+                    <ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/login"><b>HOME</b></a>
+
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/pred"><b>PREDICTION</b></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()"  href="/map"><b>NEARBY HOSPITALS</b></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" onclick="savestate()" href="/logout"><b>LOGOUT</b></a>
+						</li>
+            </ul>
+          </nav>
+        </div>
+
+		</div>
+        
+    <div style="background-color: rgb(27, 153, 226);align-items: center;">
+
+        <style>
+            .image-preview {
+                width: 500px;
+                min-height: 100px;
+                border: 2px solid #dddddd;
+                margin-top: 15px;
+                margin-left: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                color: #cccccc;
+            }
+
+            .image-preview__image {
+                display: none;
+                width: 100%;
+
+            }
+
+            .container {
+                max-width: 500px;
+                margin: auto;
+            }
+        </style>
+        <div style="text-align: center;" class="container">
+            <br><br>
+
+            <form style="text-align: center;" id="form" action="/submit" method="post" enctype="multipart/form-data">
+
+                <div>
+                    <label style='font-size: 30px;text-align: center;' for="pwd"> Upload Your X-ray:
+                    </label>
+                    <br><br>
+
+
+                    <div>
+                        <input style='font-size: 20px;background-color: gray;' type="file" name="my_image" id="inpFile" ;>
+                    </div>
+
+                    <br><br>
+                    <div style="align-self: center;height: 400px;width: 400px;background-color: white;" class="image-preview"
+                        id="imagePreview">
+                        <img src='' alt="Image Preview" class="image-preview__image" />
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <div class='form-group'>
+                    <div>
+                        <button style="width: 200px;height: 50px;font-size: large;font-weight: bold;"
+                            class='btn btn-success' id="sub_pred" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <label id="data" style='font-size: 30px;color: white;' for="pwd"> </label>
+
+                <div>
+	</div></div>
+
+
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img style="max-width: 120px; max-height: 120px;"src="../static/images/ss2.gif" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 style=" font-weight: bold;">IBM LEX BOT </h4>
+                        <!-- <p class="chatbox__description--header">HEALTH CARE BOT BUILD USING AMAZOON LEX</p> -->
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div id="chatsave" class="chat">
+
+
+                    </div>
+
+
+                </div>
+                <div class="messages__item messages__item--typing">
+                    <span class="messages__dot"></span>
+                    <span class="messages__dot"></span>
+                    <span class="messages__dot"></span>
+                </div>
+                <div class="chatbox__footer">
+                    <img src="../static/images/icons/emojis.svg" alt="">
+                    <img src="../static/images/icons/microphone.svg" alt="">
+                    <input type="text" id="inputs" type="text" placeholder="Write a message...">
+                    <button style="height:40px;width:60px;font-size: medium;" id="chat_button" onclick="myFunction()"><p class="chatbox__send--footer">Send</p></button>
+                    <img src="../static/images/icons/attachment.svg" alt="">
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button  >button</button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/Chat.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var saved_state = localStorage.getItem("state");
+            document.getElementById("chatsave").innerHTML = saved_state;
+            console.log("ready!");
+
+        });
+
+
+        $('#form').submit(function (e) {
+            e.preventDefault();
+            var form_data = new FormData();
+            var file = document.querySelector('input[type=file]').files[0];
+            form_data.append('image', file);
+            console.log(file);
+            $.ajax({
+                type: 'POST',
+                url: '/submit',
+                contentType: false,
+                processData: false,
+                data: form_data
+            })
+                .done(function (data) {
+
+                    console.log(data);
+                    document.getElementById("data").innerHTML = data;
+
+
+                })
+        }
+        );
+
+
+
+        const inpFile = document.getElementById('inpFile')
+        const previewContainer = document.getElementById('imagePreview')
+        const previewImage = previewContainer.querySelector('.image-preview__image')
+        const previewDefaultText = previewContainer.querySelector('.image-preview__image')
+
+        inpFile.addEventListener('change', function () {
+            const file = this.files[0]
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = 'none'
+                previewImage.style.display = 'block'
+
+                reader.addEventListener('load', function () {
+                    console.log(this)
+                    previewImage.setAttribute('src', this.result)
+                })
+
+                reader.readAsDataURL(file)
+            }
+
+            else {
+                previewDefaultText.style.display = null
+                preview.style.display = null
+                previewImage.setAttribute('src', '')
+            }
+
+
+        })
+
+
+
+
+
+
+    </script>
+    <script>
+
+        var input = document.getElementById("inputs");
+
+
+        input.addEventListener("keyup", function (event) {
+
+            if (event.keyCode === 13) {
+
+                event.preventDefault();
+
+                document.getElementById("chat_button").click();
+            }
+        });
+        function myFunction() {
+
+            input = document.getElementById("inputs").value;
+            if (input == "") {
+                return 0;
+            }
+            document.getElementById('inputs').value = '';
+            $(document).ready(function () {
+                $(".chat").append(' <div class="messages__item messages__item--operator">' + input + '</div>');
+            });
+
+            var list = [input];
+            input_chat = JSON.stringify(list);
+
+            $.ajax({
+                type: 'POST',
+                url: '/chat',
+                data: input_chat
+            })
+                .done(function (data) {
+                    console.log(data);
+                    $(".chat").append(' <div class="messages__item messages__item--visitor">' + data + '</div>');
+                })
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

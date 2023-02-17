@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  min-height: fit-content;
+}
+.navg {
+  background: #fff;
+  max-height: 100px;
+  max-width: 100%;
+  position: sticky;
+}
+.banner {
+  height: 100vh;
+  width: 100%;
+  color: #FFF;
+  background-color: #3463FF;
+  /* background: linear-gradient(135deg, rgba(68,129,235,1) 51.8%, rgba(35,35,35,1) 51%); */
+  /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+  background-size: 120% 100%, cover;
+  background-repeat: no-repeat;
+  margin: 0;
+
+  background-position: top;
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.banner .navbar {
+  margin-top: 4%;
+}
+.banner .navbar-brand {
+  color: rgb(255, 255, 255);
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-left: 10%;
+}
+.banner .nav {
+  margin-right: 10%;
+}
+.banner .nav li a {
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+}
+.banner .info {
+  min-height: 100%;
+  transform: translateY(-15%);
+}
+.banner .info h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.banner .info p {
+  font-size: 2em;
+  font-weight: 500;
+  color: #aaa;
+  letter-spacing: 2px;
+}
+.banner .info a {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background: #5cb85c;
+  padding: 10px 20px;
+  font-size: 2em;
+  font-weight: 600;
+}
+.banner .info a:hover {
+  background: #5cb85c;
+}
