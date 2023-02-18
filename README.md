@@ -12,3 +12,5 @@ For installing refer the Documentation provided .
 
 ![2](https://user-images.githubusercontent.com/83614865/219848375-4b22571e-5992-482b-bc5a-57d910c81339.JPG)
 ![Capture](https://user-images.githubusercontent.com/83614865/219848378-44d5c120-320e-4fe7-8989-91a67253e957.JPG)
+![3](https://user-images.githubusercontent.com/83614865/219848551-3edd0fa2-7fa5-41ce-80b1-4935965ea6c0.JPG)
+![tb](https://user-images.githubusercontent.com/83614865/219848553-8d188b58-9457-49a0-a95a-ccce0c925d1f.PNG)
